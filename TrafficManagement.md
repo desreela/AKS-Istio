@@ -10,11 +10,11 @@ The initial goal of this task is to apply rules that route all traffic to v1 (ve
 **Apply a virtual service**
 
 To route to one version only, you apply virtual services that set the default version for the microservices. In this case, the virtual services will route all traffic to v1 of each microservice.
-
+```
 kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml
 
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-
+```
 You now have configured Istio to route 100% of the traffic to the v1 version of the Bookinfo microservices, most importantly the reviews service version 1.
 
 **Test the new routing configuration**
