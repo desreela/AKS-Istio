@@ -36,7 +36,7 @@ $ kubectl get destinationrules -o yaml
 
 To route to one version only, you apply virtual services that set the default version for the microservices. In this case, the virtual services will route all traffic to v1 of each microservice.
 
-1. Run the following command to apply the virtual services:
+Run the following command to apply the virtual services:
 
 ```
 
@@ -52,7 +52,7 @@ You have now configured Istio to route to the v1 version of the Bookinfo microse
 
 You can easily test the new configuration by once again refreshing the /productpage of the Bookinfo app.
 
-1. Open the Bookinfo site in your browser. The URL is http://$GATEWAY\_URL/productpage, where $GATEWAY\_URL is the External IP address of the ingress, as explained in the [Bookinfo](https://istio.io/docs/examples/bookinfo/#determining-the-ingress-ip-and-port) doc.
+Open the Bookinfo site in your browser. The URL is http://$GATEWAY\_URL/productpage, where $GATEWAY\_URL is the External IP address of the ingress, as explained in the [Bookinfo](https://istio.io/docs/examples/bookinfo/#determining-the-ingress-ip-and-port) doc.
 
 Notice that the reviews part of the page displays with no rating stars, no matter how many times you refresh. This is because you configured Istio to route all traffic for the reviews service to the version reviews:v1 and this version of the service does not access the star ratings service.
 
@@ -67,7 +67,7 @@ Note that Istio doesn't have any special, built-in understanding of user identit
 
 Remember, reviews:v2 is the version that includes the star ratings feature.
 
-1. Run the following command to enable user-based routing:
+Run the following command to enable user-based routing:
 
 ```
 
@@ -83,16 +83,15 @@ kubectl get virtualservice reviews -o yaml
 
 ```
 
-2. On the /productpage of the Bookinfo app, log in as user jason.
+On the /productpage of the Bookinfo app, log in as user jason.
 
 Refresh the browser. What do you see? The star ratings appear next to each review.
 
-3. Log in as another user (pick any name you wish).
+Log in as another user (pick any name you wish).
 
 Refresh the browser. Now the stars are gone. This is because traffic is routed to reviews:v1 for all users except Jason.
 
 You have successfully configured Istio to route traffic based on user identity.
-
 
 
 ##
@@ -110,7 +109,7 @@ A common use case is to migrate traffic gradually from one version of a microser
 
 In this task, you will send 50% of traffic to reviews:v1 and 50% to reviews:v3. Then, you will complete the migration by sending 100% of traffic to reviews:v3.
 
-1. To get started, run this command to route all traffic to the v1 version of each microservice.
+To get started, run this command to route all traffic to the v1 version of each microservice.
 
 ```
 
@@ -118,11 +117,11 @@ $ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 
 ```
 
-2. Open the Bookinfo site in your browser. The URL is http://$GATEWAY\_URL/productpage, where $GATEWAY\_URL is the External IP address of the ingress, as explained in the [Bookinfo](https://istio.io/docs/examples/bookinfo/#determining-the-ingress-ip-and-port) doc.
+Open the Bookinfo site in your browser. The URL is http://$GATEWAY\_URL/productpage, where $GATEWAY\_URL is the External IP address of the ingress, as explained in the [Bookinfo](https://istio.io/docs/examples/bookinfo/#determining-the-ingress-ip-and-port) doc.
 
 Notice that the reviews part of the page displays with no rating stars, no matter how many times you refresh. This is because you configured Istio to route all traffic for the reviews service to the version reviews:v1 and this version of the service does not access the star ratings service.
 
-3. Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command:
+Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command:
 
 ```
 $ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
@@ -130,8 +129,8 @@ $ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yam
 
 Wait a few seconds for the new rules to propagate.
 
-1. Confirm the rule was replaced:
-2. In your browser and you now see _red_ colored star ratings approximately 50% of the time. This is because the v3 version of reviews accesses the star ratings service, but the v1 version does not.
+Confirm the rule was replaced:
+In your browser and you now see _red_ colored star ratings approximately 50% of the time. This is because the v3 version of reviews accesses the star ratings service, but the v1 version does not.
 
 **Task2:**
 
@@ -171,7 +170,7 @@ In your browser and you now see _red_ colored star ratings approximately 80% of 
 
 **Task3:**
 
-1. Assuming you decide that the reviews:v3 microservice is stable, you can route 100% of the traffic to reviews:v3 by applying this virtual service:
+Assuming you decide that the reviews:v3 microservice is stable, you can route 100% of the traffic to reviews:v3 by applying this virtual service:
 
 ```
 
