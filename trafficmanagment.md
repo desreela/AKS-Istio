@@ -140,23 +140,23 @@ In the shell open the file samples/bookinfo/networking/virtual-service-reviews-5
 Now change the ratio to 80:20%
 
 ```
-
-_- __destination__ :_
-
-_       _ _host__:_ _reviews_
-
-_       _ _subset__:_ _v1_
-
-_     _ _weight __:__ 20_
-
-_   _ _- __destination__ :_
-
-_       _ _host__:_ _reviews_
-
-_       _ _subset__:_ _v3_
-
-_     _ _weight __:__ 80_
-
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+      weight: 20
+    - destination:
+        host: reviews
+        subset: v3
+      weight: 80
 ```
 
 Save the file and reapply the rules:
