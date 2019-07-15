@@ -71,7 +71,7 @@ Remember, reviews:v2 is the version that includes the star ratings feature.
 
 ```
 
-$ kubectl apply -f [samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml)
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
 
 ```
 
@@ -114,7 +114,7 @@ In this task, you will send 50% of traffic to reviews:v1 and 50% to reviews:v3. 
 
 ```
 
-$ kubectl apply -f [samples/bookinfo/networking/virtual-service-all-v1.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-all-v1.yaml)
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 
 ```
 
@@ -125,9 +125,7 @@ Notice that the reviews part of the page displays with no rating stars, no matte
 3. Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command:
 
 ```
-
-$ kubectl apply -f [samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml)
-
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
 ```
 
 Wait a few seconds for the new rules to propagate.
@@ -139,8 +137,7 @@ Wait a few seconds for the new rules to propagate.
 
 Shifting the traffic ratio to 80:20%
 
-In the shell open the file [samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml)
-
+In the shell open the file samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
 Now change the ratio to 80:20%
 
 ```
@@ -166,8 +163,7 @@ _     _ _weight __:__ 80_
 Save the file and reapply the rules:
 
 ```
-
-$ kubectl apply -f [samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml)
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
 
 ```
 
@@ -179,7 +175,7 @@ In your browser and you now see _red_ colored star ratings approximately 80% of 
 
 ```
 
-$ kubectl apply -f [samples/bookinfo/networking/virtual-service-reviews-v3.yaml](https://raw.githubusercontent.com/istio/istio/release-1.2/samples/bookinfo/networking/virtual-service-reviews-v3.yaml)
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-v3.yaml
 
 ```
 
