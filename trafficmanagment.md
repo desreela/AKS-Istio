@@ -83,7 +83,7 @@ kubectl get virtualservice reviews -o yaml
 
 ```
 
-On the /productpage of the Bookinfo app, log in as user jason.
+On the /productpage of the Bookinfo app, log in as user jason. Leave the password as blank.
 
 Refresh the browser. What do you see? The star ratings appear next to each review.
 
